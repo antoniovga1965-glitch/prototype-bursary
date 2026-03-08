@@ -38,7 +38,7 @@ const universityschemas = z.object({
 
 const limitapplication = limit({
     windowMs: 30 * 60 * 1000,
-    max: 1000,
+    max: 3,
     message: { message: 'Too many application coming from this Ip...try again later' },
 });
 
