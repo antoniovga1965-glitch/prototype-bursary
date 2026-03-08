@@ -1,0 +1,138 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model registered_users {
+  id Int @id  @default(autoincrement())
+  REGISTERNAME String
+  REGISTEREMAIL  String      @unique
+  PHONENO  String
+  REGPASS1  String
+  token        String?
+   role          String    @default("student")
+  resetTokenExpiry DateTime?
+  created_at   DateTime    @default(now())
+}
+
+
+model files {
+   id Int @id  @default(autoincrement())
+   hashedfile  String @unique
+   document   String
+   applicant_Id  Int
+    created_at   DateTime    @default(now())
+}
+
+
+model unifiles {
+   id Int @id  @default(autoincrement())
+   hashedfile  String @unique
+   document   String
+   applicant_Id  Int
+    created_at   DateTime    @default(now())
+}
+
+
+
+model secondary_applications {
+  id              Int      @id @default(autoincrement())
+  applicant_id    Int
+  
+ 
+  sec_fullname    String
+  sec_dob         String
+  sec_birthcert   String
+  personalemail   String
+  sec_phone       String
+  
+  sec_schoolname  String
+  sec_email       String
+  sec_admno       String
+  sec_form        String
+  sec_grade       String
+  
+ 
+  sec_guardian    String
+  sec_income      String
+  sec_county      String
+  sec_subcounty   String
+  
+  
+  ocr_data        String?  
+  flags           String?  
+  riskpoints      Int      @default(0)
+  incomeScore     Int      @default(0)
+  status          String   @default("pending") 
+  
+
+  has_death_cert  Boolean  @default(false)
+  death_cert_no   String?
+  
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+}
+
+
+model admin_logs {
+  id          Int      @id @default(autoincrement())
+  admin_id    Int
+  action      String  
+  target_id   Int     
+  reason      String?  
+  ip_address  String
+  created_at  DateTime @default(now())
+}
+
+model university_applications {
+  id              Int      @id @default(autoincrement())
+  applicant_id    Int
+
+  uni_fullname    String
+  uni_dob         String
+  uni_nationalid  String
+  uni_email       String
+  uni_phone       String
+
+
+  uni_institution String
+  uni_regnumber   String
+  uni_course      String
+  uni_year        String
+  uni_gpa         String
+  tertiary_email   String
+  uni_guardian    String
+  uni_income      String
+  uni_county      String
+  uni_subcounty   String
+  uni_ward        String
+
+  ocr_data        String?  
+  flags           String?  
+  riskpoints      Int      @default(0)
+  incomeScore     Int      @default(0)
+  status          String   @default("pending") 
+
+  
+
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+}
+
+model budget{
+    id              Int      @id @default(autoincrement())
+    SETBUDGET          String
+    BUDGETEDCOUNTY    String
+     YEARFINANCIAL  String 
+
+}

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Student dashboard</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Sora', sans-serif;
+        }
+    </style>
+    <title>Student Dashboard</title>
+    </head>
+
+    <body class="bg-white">
+        <div>
+            <!-- Navigation -->
+            <nav class="sticky top-0 z-50 bg-stone-400 border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">SB</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-900">Smart Bursary</h2>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <button class="p-2 hover:bg-gray-100 rounded-lg transition">
+                            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m6.364 1.636l-.707.707M21 12h-1m1.364 6.364l-.707-.707M12 21v1m-6.364-1.636l.707-.707M3 12h1M3.636 5.636l.707.707">
+                                </path>
+                            </svg>
+                        </button>
+                        <button id="logoutstudent"
+                            class="px-6 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg font-semibold text-gray-700 transition">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Hero Section -->
+            <section class="bg-gradient-to-r from-black to-gray-900 text-white py-20 px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Welcome to Your Dashboard
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
+                        Your Future, Fairly Funded. Apply for bursary support in under 5 minutes. Our AI-powered system
+                        ensures fair allocation based on merit, not connections. Have your documents ready and apply
+                        today.
+                    </p>
+                    <button id="startapplication"
+                        class="inline-block px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-lg font-bold text-white text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                        Start Application
+                    </button>
+                </div>
+            </section>
+
+            <!-- Divider -->
+            <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent my-12"></div>
+
+            <!-- Requirements & Procedure Section -->
+            <section class="max-w-7xl mx-auto px-6 py-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Requirements -->
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-8">📋 What You'll Need</h1>
+                        <div class="space-y-4">
+                            <div
+                                class="bg-white border-l-4 border-green-500 p-4 rounded-lg shadow-sm hover:shadow-md hover:translate-x-2 transition-all duration-300">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-2xl">📄</span>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Birth Certificate</p>
+                                        <p class="text-sm text-gray-600">Original or certified copy</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white border-l-4 border-green-500 p-4 rounded-lg shadow-sm hover:shadow-md hover:translate-x-2 transition-all duration-300">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-2xl">🎓</span>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Academic Results</p>
+                                        <p class="text-sm text-gray-600">KCSE certificate or transcript</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white border-l-4 border-green-500 p-4 rounded-lg shadow-sm hover:shadow-md hover:translate-x-2 transition-all duration-300">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-2xl">🪪</span>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">National ID Copy</p>
+                                        <p class="text-sm text-gray-600">Clear photocopy or scan</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white border-l-4 border-green-500 p-4 rounded-lg shadow-sm hover:shadow-md hover:translate-x-2 transition-all duration-300">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-2xl">💼</span>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Proof of Income</p>
+                                        <p class="text-sm text-gray-600">Payslip, letter, or tax document</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white border-l-4 border-green-500 p-4 rounded-lg shadow-sm hover:shadow-md hover:translate-x-2 transition-all duration-300">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-2xl">📎</span>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Supporting Documents</p>
+                                        <p class="text-sm text-gray-600">School letter, fee structure, etc.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Procedure -->
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-8">🚀 How It Works</h1>
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
+                            <div class="p-6 border-b border-gray-100 flex gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-green-500 text-white font-bold flex items-center justify-center flex-shrink-0">
+                                    1</div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Fill in Your Details</p>
+                                    <p class="text-sm text-gray-600">Complete all required fields with accurate
+                                        information</p>
+                                </div>
+                            </div>
+
+                            <div class="p-6 border-b border-gray-100 flex gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-green-500 text-white font-bold flex items-center justify-center flex-shrink-0">
+                                    2</div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Upload Documents</p>
+                                    <p class="text-sm text-gray-600">Scan and upload all required documents</p>
+                                </div>
+                            </div>
+
+                            <div class="p-6 border-b border-gray-100 flex gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-green-500 text-white font-bold flex items-center justify-center flex-shrink-0">
+                                    3</div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">AI Verification</p>
+                                    <p class="text-sm text-gray-600">Our AI verifies your documents in real-time</p>
+                                </div>
+                            </div>
+
+                            <div class="p-6 flex gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-green-500 text-white font-bold flex items-center justify-center flex-shrink-0">
+                                    4</div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Submit & Wait</p>
+                                    <p class="text-sm text-gray-600">Get confirmation email, then await processing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Divider -->
+            <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent my-12"></div>
+
+            <!-- Application Type Section -->
+            <section id="applicationtype" class="max-w-7xl mx-auto px-6 py-16">
+                <h1 class="text-4xl font-bold text-gray-900 text-center mb-12">Choose Your Path</h1>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Secondary Students Card -->
+                    <div id="secondaryapplication"
+                        class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 hover:border-green-400">
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 h-32 flex items-center justify-center">
+                            <span class="text-6xl">🏫</span>
+                        </div>
+                        <div class="p-8 text-center">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Secondary School Students</h3>
+                            <p class="text-gray-600 text-base mb-8">Currently in Form 1-4? Apply for secondary education
+                                bursary support</p>
+                            <button type="button"
+                                class="w-full py-3 px-6 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition-colors duration-200">
+                                Start Application
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- University/College/TVET Card -->
+                    <div id="universityapplicant"
+                        class="bg-white rounded-xl overflow-hidden shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 hover:border-green-400">
+                        <div
+                            class="bg-gradient-to-br from-purple-50 to-purple-100 h-32 flex items-center justify-center">
+                            <span class="text-6xl">🎓</span>
+                        </div>
+                        <div class="p-8 text-center">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">University / College / TVET</h3>
+                            <p class="text-gray-600 text-base mb-8">Pursuing higher education? Apply for post-secondary
+                                bursary support</p>
+                            <button
+                                class="w-full py-3 px-6 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition-colors duration-200">
+                                Start Application
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+            <!-- Secondary School Applicant Form -->
+            <form id="secondaryform" class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto mb-12 hidden">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">Secondary School Application</h1>
+                <p class="text-gray-600 mb-8">Apply for secondary school bursary support</p>
+
+                <!-- Personal Details -->
+                <fieldset class="border border-gray-300 rounded-lg p-6 mb-8">
+                    <legend class="text-xl font-bold text-gray-900 px-3 -mx-3">👤 Personal Details</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <label for="sec_fullname" class="block text-sm font-semibold text-gray-700 mb-2">Full
+                                Name</label>
+                            <input type="text" id="sec_fullname" placeholder="Enter your name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="sec_dob" class="block text-sm font-semibold text-gray-700 mb-2">Date of
+                                Birth</label>
+                            <input type="date" id="sec_dob"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="sec_birthcert" class="block text-sm font-semibold text-gray-700 mb-2">Birth
+                                Certificate Number/Entry number</label>
+                            <input type="text" id="sec_birthcert" placeholder="Enter birth certificate number"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email
+                                Address</label>
+                            <input type="email" id="personalemail" placeholder="Enter your email"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+
+
+                        <div>
+                            <label for="sec_phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone
+                                Number</label>
+                            <input type="number" id="sec_phone" placeholder="Enter your phone number"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- School Info -->
+                <fieldset class="border border-gray-300 rounded-lg p-6 mb-8">
+                    <legend class="text-xl font-bold text-gray-900 px-3 -mx-3">🏫 School Information</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <label for="sec_schoolname" class="block text-sm font-semibold text-gray-700 mb-2">Current
+                                School Name</label>
+                            <input type="text" id="sec_schoolname" placeholder="Enter your school name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+
+                        <div>
+                            <label for="sec_email" class="block text-sm font-semibold text-gray-700 mb-2">School Email
+                                Address</label>
+                            <input type="email" id="sec_email" placeholder="Enter your email"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+
+                        <div>
+                            <label for="sec_admno" class="block text-sm font-semibold text-gray-700 mb-2">Admission
+                                Number</label>
+                            <input type="text" id="sec_admno" placeholder="Enter admission number"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="sec_form" class="block text-sm font-semibold text-gray-700 mb-2">Current
+                                Form</label>
+                            <select id="sec_form"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                                <option value="">Select form</option>
+                                <option value="Form 1">Form 1</option>
+                                <option value="Form 2">Form 2</option>
+                                <option value="Form 3">Form 3</option>
+                                <option value="Form 4">Form 4</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="sec_grade" class="block text-sm font-semibold text-gray-700 mb-2">Expected
+                                Grade</label>
+                            <select id="sec_grade"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                                <option value="">Select grade</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Financial Info -->
+                <fieldset class="border border-gray-300 rounded-lg p-6 mb-8">
+                    <legend class="text-xl font-bold text-gray-900 px-3 -mx-3">💰 Financial Information</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <label for="sec_guardian"
+                                class="block text-sm font-semibold text-gray-700 mb-2">Parent/Guardian Name</label>
+                            <input type="text" id="sec_guardian" placeholder="Enter parent/guardian name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="sec_income" class="block text-sm font-semibold text-gray-700 mb-2">Parent
+                                Monthly Income</label>
+                            <select id="sec_income"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                                <option value="">Select income range</option>
+                                <option value="below 10,000">Below 10,000</option>
+                                <option value="20,000-40,000">20,000-40,000</option>
+                                <option value="50,000-70,000">50,000-70,000</option>
+                                <option value="above-80000">Over 80,000</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="sec_county"
+                                class="block text-sm font-semibold text-gray-700 mb-2">County</label>
+                            <input type="text" id="sec_county" placeholder="Enter your county"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="sec_subcounty"
+                                class="block text-sm font-semibold text-gray-700 mb-2">Sub-County</label>
+                            <input type="text" id="sec_subcounty" placeholder="Enter your sub-county"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Documents -->
+                <fieldset class="border border-gray-300 rounded-lg p-6 mb-8">
+                    <legend class="text-xl font-bold text-gray-900 px-3 -mx-3">📄 Documents Upload</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <label for="sec_birthcertfile" class="block text-sm font-semibold text-gray-700 mb-2">Birth
+                                Certificate</label>
+                            <input type="file" id="sec_birthcertfile"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="sec_results" class="block text-sm font-semibold text-gray-700 mb-2">Results
+                                Slip</label>
+                            <input type="file" id="sec_results"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="sec_admission" class="block text-sm font-semibold text-gray-700 mb-2">Admission
+                                Letter</label>
+                            <input type="file" id="sec_admission"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="sec_fee" class="block text-sm font-semibold text-gray-700 mb-2">Fee
+                                Statement</label>
+                            <input type="file" id="sec_fee"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="sec_death" class="block text-sm font-semibold text-gray-700 mb-2">Death
+                                Certificate (if applicable)</label>
+                            <input type="file" id="sec_death"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="sec_kcse" class="block text-sm font-semibold text-gray-700 mb-2">KCPE
+                                Registration Certificate</label>
+                            <input type="file" id="sec_kcpe"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="sec_income_proof" class="block text-sm font-semibold text-gray-700 mb-2">Proof
+                                of Income</label>
+                            <input type="file" id="sec_income_proof"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Declaration -->
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+                    <div class="flex items-start gap-4">
+                        <input type="radio" id="sec_declaration" class="mt-1 cursor-pointer">
+                        <p class="text-gray-700"><span class="font-semibold">Declaration:</span> I hereby declare that
+                            the information I have provided is true and accurate. I understand that any false
+                            information may result in rejection of my application.</p>
+                    </div>
+                </div>
+
+                <button type="button" id="sec_submit"
+                    class="w-full py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-lg rounded-lg transition-all duration-300 transform hover:scale-105">
+                    Submit Application
+                </button>
+
+                <p id="secresults" class="mt-6 text-center"></p>
+            </form>
+
+            <!-- University Applicant Form -->
+            <form id="universityform" action=""
+                class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto mb-12 hidden">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">University / College / TVET Application</h1>
+                <p class="text-gray-600 mb-8">Apply for post-secondary bursary support</p>
+
+                <!-- Personal Details -->
+                <fieldset class="border border-gray-300 rounded-lg p-6 mb-8">
+                    <legend class="text-xl font-bold text-gray-900 px-3 -mx-3">👤 Personal Details</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <label for="uni_fullname" class="block text-sm font-semibold text-gray-700 mb-2">Full
+                                Name</label>
+                            <input type="text" id="uni_fullname" placeholder="Enter your name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_dob" class="block text-sm font-semibold text-gray-700 mb-2">Date of
+                                Birth</label>
+                            <input type="date" id="uni_dob"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_nationalid" class="block text-sm font-semibold text-gray-700 mb-2">National
+                                ID Number</label>
+                            <input type="text" id="uni_nationalid" placeholder="Enter national ID number"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_email" class="block text-sm font-semibold text-gray-700 mb-2">Email
+                                Address</label>
+                            <input type="email" id="uni_email" placeholder="Enter your email"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone
+                                Number</label>
+                            <input type="number" id="uni_phone" placeholder="Enter your phone number"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Institution Info -->
+                <fieldset class="border border-gray-300 rounded-lg p-6 mb-8">
+                    <legend class="text-xl font-bold text-gray-900 px-3 -mx-3">🎓 Institution Information</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <label for="uni_institution"
+                                class="block text-sm font-semibold text-gray-700 mb-2">Institution Name</label>
+                            <input type="text" id="uni_institution" placeholder="Enter institution name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_regnumber"
+                                class="block text-sm font-semibold text-gray-700 mb-2">Registration Number</label>
+                            <input type="text" id="uni_regnumber" placeholder="Enter registration number"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_course" class="block text-sm font-semibold text-gray-700 mb-2">Course
+                                Name</label>
+                            <input type="text" id="uni_course" placeholder="Enter course name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_year" class="block text-sm font-semibold text-gray-700 mb-2">Year of
+                                Study</label>
+                            <select id="uni_year"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                                <option value="">Select year</option>
+                                <option value="Year 1">Year 1</option>
+                                <option value="Year 2">Year 2</option>
+                                <option value="Year 3">Year 3</option>
+                                <option value="Year 4">Year 4</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="uni_gpa" class="block text-sm font-semibold text-gray-700 mb-2">GPA / Current
+                                Grade</label>
+                            <select id="uni_gpa"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                                <option value="">Select GPA</option>
+                                <option value="GPA 2.0">GPA 2.0</option>
+                                <option value="GPA 2.5">GPA 2.5</option>
+                                <option value="GPA 3.0">GPA 3.0</option>
+                                <option value="GPA 3.5">GPA 3.5</option>
+                                <option value="GPA 4.0">GPA 4.0</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="Tertiary_email" class="block text-sm font-semibold text-gray-700 mb-2 mt-2">Tertiary
+                            Email Address</label>
+                        <input type="email" id="Tertiary_email" placeholder="Enter your  Tertiary institution address"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                    </div>
+                </fieldset>
+
+                <!-- Financial Info -->
+                <fieldset class="border border-gray-300 rounded-lg p-6 mb-8">
+                    <legend class="text-xl font-bold text-gray-900 px-3 -mx-3">💰 Financial Information</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <label for="uni_guardian"
+                                class="block text-sm font-semibold text-gray-700 mb-2">Parent/Guardian Name</label>
+                            <input type="text" id="uni_guardian" placeholder="Enter parent/guardian name"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_income" class="block text-sm font-semibold text-gray-700 mb-2">Parent
+                                Monthly Income</label>
+                            <select id="uni_income"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                                <option value="Below 10000">Below 10,000</option>
+                                <option value="20000-40000">20,000 - 40,000</option>
+                                <option value="50000-70000">50,000 - 70,000</option>
+                                <option value="Over 80000">Over 80,000</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="uni_county"
+                                class="block text-sm font-semibold text-gray-700 mb-2">County</label>
+                            <input type="text" id="uni_county" placeholder="Enter your county"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_subcounty"
+                                class="block text-sm font-semibold text-gray-700 mb-2">Sub-County</label>
+                            <input type="text" id="uni_subcounty" placeholder="Enter your sub-county"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_ward" class="block text-sm font-semibold text-gray-700 mb-2">Ward</label>
+                            <input type="text" id="uni_ward" placeholder="Enter your ward"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Documents -->
+                <fieldset class="border border-gray-300 rounded-lg p-6 mb-8">
+                    <legend class="text-xl font-bold text-gray-900 px-3 -mx-3">📄 Documents Upload</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div>
+                            <label for="uni_birthcert" class="block text-sm font-semibold text-gray-700 mb-2">Birth
+                                Certificate</label>
+                            <input type="file" id="uni_birthcert"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_nationalidfile"
+                                class="block text-sm font-semibold text-gray-700 mb-2">National ID Copy</label>
+                            <input type="file" id="uni_nationalidfile"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_admission" class="block text-sm font-semibold text-gray-700 mb-2">Admission
+                                Letter</label>
+                            <input type="file" id="uni_admission"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_transcript" class="block text-sm font-semibold text-gray-700 mb-2">Academic
+                                Transcript</label>
+                            <input type="file" id="uni_transcript"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_kcse" class="block text-sm font-semibold text-gray-700 mb-2">KCSE
+                                Certificate</label>
+                            <input type="file" id="uni_kcse"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_kcpe" class="block text-sm font-semibold text-gray-700 mb-2">KCPE
+                                Certificate</label>
+                            <input type="file" id="uni_kcpe"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_fee" class="block text-sm font-semibold text-gray-700 mb-2">Fee Structure /
+                                Invoice</label>
+                            <input type="file" id="uni_fee"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="uni_income_proof" class="block text-sm font-semibold text-gray-700 mb-2">Proof
+                                of Income</label>
+                            <input type="file" id="uni_income_proof"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Declaration -->
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+                    <div class="flex items-start gap-4">
+                        <input type="radio" id="uni_declaration" class="mt-1 cursor-pointer">
+                        <p class="text-gray-700"><span class="font-semibold">Declaration:</span> I hereby declare that
+                            the information I have provided is true and accurate. I understand that any false
+                            information may result in rejection of my application.</p>
+                    </div>
+                </div>
+
+                <button type="button" id="uni_submit"
+                    class="w-full py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-lg rounded-lg transition-all duration-300 transform hover:scale-105">
+                    Submit Application
+                </button>
+
+                <p id="uniresults" class="mt-6 text-center"></p>
+            </form>
+            <!-- Footer -->
+            <footer class="hero-gradient text-black py-16 px-4 bg-gray-500">
+                <div class="max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-bold mb-8 text-center">Reach Us On Our Social Platforms</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <!-- Email -->
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-green-400 transition cursor-pointer">
+                                <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-lg mb-1">Email</h4>
+                            <p class="text-gray-300">contact@smartbursary.ke</p>
+                        </div>
+
+                        <!-- Facebook -->
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-green-400 transition cursor-pointer">
+                                <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
+                                    <path
+                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-lg mb-1">Facebook</h4>
+                            <p class="text-gray-300">Smart Bursary Kenya</p>
+                        </div>
+
+                        <!-- WhatsApp -->
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-green-400 transition cursor-pointer">
+                                <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.782 1.176c-1.314.734-2.46 1.729-3.28 2.884a9.922 9.922 0 00-1.646 4.038c-.263.882-.296 1.831-.08 2.743.216.913.722 1.737 1.4 2.37l-.543 1.974 2.065-.644c.68.417 1.467.695 2.28.784.381.044.768.038 1.15-.02 1.323-.156 2.566-.74 3.5-1.62 1.129-1.032 1.934-2.443 2.23-3.982.109-.57.138-1.167.08-1.75-.347-3.432-3.253-6.108-6.714-6.108zm11.707 1.755c-.147-1.582-1.142-2.97-2.516-3.738-1.374-.768-3.004-.964-4.504-.54-1.5.424-2.804 1.493-3.476 2.876-.672 1.383-.753 2.98-.23 4.418.523 1.438 1.64 2.62 3.048 3.247 1.408.627 3.033.693 4.495.186 1.462-.507 2.691-1.618 3.285-3.014.594-1.395.55-3.01-.054-4.435z" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-lg mb-1">WhatsApp</h4>
+                            <p class="text-gray-300">+254 700 000 000</p>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                        <p class="text-black">&copy; 2024 Smart Bursary Portal. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script type="module" src="script.js"></script>
+
+    </body>
+
+</html>

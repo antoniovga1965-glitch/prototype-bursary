@@ -1,0 +1,9 @@
+-- CreateTable
+CREATE TABLE "budget" (
+    "id" SERIAL NOT NULL,
+    "SETBUDGET" INTEGER NOT NULL,
+    "BUDGETEDCOUNTY" TEXT NOT NULL,
+    "YEARFINANCIAL" TEXT NOT NULL,
+
+    CONSTRAINT "budget_pkey" PRIMARY KEY ("id")
+);

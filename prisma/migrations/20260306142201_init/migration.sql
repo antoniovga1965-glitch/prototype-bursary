@@ -1,0 +1,30 @@
+-- CreateTable
+CREATE TABLE "secondary_applications" (
+    "id" SERIAL NOT NULL,
+    "applicant_id" INTEGER NOT NULL,
+    "sec_fullname" TEXT NOT NULL,
+    "sec_dob" TEXT NOT NULL,
+    "sec_birthcert" TEXT NOT NULL,
+    "personalemail" TEXT NOT NULL,
+    "sec_phone" TEXT NOT NULL,
+    "sec_schoolname" TEXT NOT NULL,
+    "sec_email" TEXT NOT NULL,
+    "sec_admno" TEXT NOT NULL,
+    "sec_form" TEXT NOT NULL,
+    "sec_grade" TEXT NOT NULL,
+    "sec_guardian" TEXT NOT NULL,
+    "sec_income" TEXT NOT NULL,
+    "sec_county" TEXT NOT NULL,
+    "sec_subcounty" TEXT NOT NULL,
+    "ocr_data" TEXT,
+    "flags" TEXT,
+    "riskpoints" INTEGER NOT NULL DEFAULT 0,
+    "incomeScore" INTEGER NOT NULL DEFAULT 0,
+    "status" TEXT NOT NULL DEFAULT 'pending',
+    "has_death_cert" BOOLEAN NOT NULL DEFAULT false,
+    "death_cert_no" TEXT,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "secondary_applications_pkey" PRIMARY KEY ("id")
+);
