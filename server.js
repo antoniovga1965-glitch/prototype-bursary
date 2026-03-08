@@ -34,6 +34,16 @@ app.use('/uniapplication',uniapplication);
 
 const getusers = require('./universityssieves/getrejuser');
 app.use('/getusers',getusers);
+process.on('uncaughtException', (err) => {
+    console.error('CRASH:', err.message);
+    console.error(err.stack);
+});
+
+process.on('unhandledRejection', (err) => {
+    console.error('UNHANDLED:', err.message);
+});
+
+
 
 app.listen(port,()=>{
     console.log(`Your app is live at http://localhost:${port}`)
