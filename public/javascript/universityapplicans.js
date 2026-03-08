@@ -93,6 +93,9 @@ console.log('uni_ward:', document.getElementById('uni_ward')?.value);
 console.log('uni_declaration:', document.getElementById('uni_declaration')?.checked);
 
 
+uni_submit.disabled = true;
+uni_submit.textContent = '⏳ Submitting... please wait';
+uniresults.textContent = '';
 
     fetch('/uniapplication/universityapp',{
         method:'POST',
@@ -101,8 +104,15 @@ console.log('uni_declaration:', document.getElementById('uni_declaration')?.chec
     })
     .then(res=>res.json())
     .then(data=>{
+
         uniresults.textContent = data.message;
+            uni_submit.disabled = false;
+    uni_submit.textContent = 'Submit Application';
+
     }).catch(err=>{
+        uni_submit.disabled = false;
+    uni_submit.textContent = 'Submit Application';
+
         uniresults.textContent = err.message;
     })
 
