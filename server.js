@@ -1,6 +1,6 @@
 const express = require('express');
 const app =express();
-const port = process.env.PORT || 3000;
+const port =3000;
 const cookieparse = require('cookie-parser');
 
 app.use(cookieparse());
@@ -34,14 +34,6 @@ app.use('/uniapplication',uniapplication);
 
 const getusers = require('./universityssieves/getrejuser');
 app.use('/getusers',getusers);
-process.on('uncaughtException', (err) => {
-    console.error('CRASH:', err.message);
-    console.error(err.stack);
-});
-
-process.on('unhandledRejection', (err) => {
-    console.error('UNHANDLED:', err.message);
-});
 
 
 
