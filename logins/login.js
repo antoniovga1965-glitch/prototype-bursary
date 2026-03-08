@@ -37,7 +37,9 @@ Router.post('/login',limitor,async(req,res)=>{
     const token = jwt.sign({id:response.id,email:response.REGISTEREMAIL,role:response.role},process.env.SECRET_KEY,{expiresIn:'1h'});
     res.cookie('token',token,{
         httpOnly:true,
-        sameSite:'strict',
+        secure:true,
+        sameSite:'none',
+maxAge:24*60*60*1000,
         secure: process.env.NODE_ENV === 'production'
 
     })
