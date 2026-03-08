@@ -34,7 +34,7 @@ router.post('/resetpassword',async(req,res)=>{
             html:`
             <h2>Password Reset</p>
               <p>Click the link to reset the Password</p> 
-             <a href="${process.env.FRONTENDURL}/emailsend?token=${token}">Reset Password</a>
+             <a href="${process.env.FRONTENDURL}/passwordreset.html?token=${token}">Reset Password</a>
              <p>Link expires in 1 hour</p> `
         })
         return res.status(200).json({message:'link sent to your email address '});
