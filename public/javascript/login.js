@@ -85,18 +85,17 @@ loginbtn.addEventListener('click',()=>{
 .then(data => {
     loginresults.textContent = data.message;
 
-    // ✅ Only call /me if login succeeded
     if(data.message.includes('succesfully')){
         return fetch('/loginroute/me', {credentials: 'include'});
     }
-    return null; // stop chain if login failed
+    return null; 
 })
 .then(res => {
-    if(!res) return null; // ✅ stop if login failed
+    if(!res) return null; 
     return res.json();
 })
 .then(data => {
-    if(!data) return; // ✅ stop if no data
+    if(!data) return; 
     setTimeout(() => {
         if(data.role === 'admin') window.location.href = '/admin.html';
         else if(data.role === 'student') window.location.href = '/student.html';

@@ -39,8 +39,7 @@ Router.post('/login',limitor,async(req,res)=>{
         httpOnly:true,
         secure:true,
         sameSite:'none',
-maxAge:24*60*60*1000,
-        secure: process.env.NODE_ENV === 'production'
+        maxAge:24*60*60*1000,
 
     })
     return res.status(200).json({message:`${EMAILLOGIN} youve logged in succesfully wait for redirection`})
