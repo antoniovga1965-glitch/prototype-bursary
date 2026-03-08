@@ -6,7 +6,6 @@ const router = express.Router();
 const z = require('zod');
 const limit = require('express-rate-limit');
 const prisma = require('../prisma/client');
-const verifyjwt = require('../middleware');
 
 
 
@@ -32,7 +31,7 @@ const registorlimitor = limit({
     message: { message: 'Too many login attempts try again later' }
 })
 
-router.post('/register',verifyjwt,registorlimitor, regschemas, async (req, res) => {
+router.post('/register',registorlimitor, regschemas, async (req, res) => {
     const { REGISTERNAME, REGISTEREMAIL, PHONENO, REGPASS1 } = req.body;
     try {
 
