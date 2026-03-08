@@ -101,6 +101,9 @@ console.log('sec_grade:', secGrade.value);
     }
 
 
+secSubmit.disabled = true;
+secSubmit.textContent = '⏳ Submitting... please wait';
+secResultsDisplay.textContent = '';
 
     fetch('/secondaryapplication/secondaryapplicant', {
         method: 'POST',
@@ -109,14 +112,18 @@ console.log('sec_grade:', secGrade.value);
 
     }).then(res => res.json())
         .then(data => {
+                secSubmit.disabled = false;
+        secSubmit.textContent = 'Submit Application';
             secResultsDisplay.textContent = data.message;
         })
         .catch(err => {
+              secSubmit.disabled = false;
+        secSubmit.textContent = 'Submit Application';
             secResultsDisplay.textContent = err.message;
         })
 
 })
-const secondaryapplicants  =document.getElementById('secondaryapplicants');
+
 
 
 
