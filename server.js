@@ -2,10 +2,11 @@ const express = require('express');
 const app =express();
 const port =3000;
 const cookieparse = require('cookie-parser');
+const cors = require('cors');
 
 app.use(cookieparse());
 
-
+app.use(cors())
 app.use(express.static('public'));
 app.use(express.json());
 
